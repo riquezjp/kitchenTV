@@ -1,0 +1,169 @@
+body {
+  background-color: #9eddff;
+  font: 400 1em/1.38 Montserrat;
+  color: #ffffff;
+  margin: 0;
+  overflow: hidden;
+}
+
+
+.col1{
+    width: calc(100% - 500px);
+     float:left;
+}
+.col1 p{
+     margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.col2{
+	width:500px; 
+	height: 100%; 
+	float:right; 
+	/*background-color: #de2829;*/
+	padding-top: 100px;
+}
+
+.clocks {
+    height: 500px;
+    margin: auto;
+    position: relative;
+    width: 500px;
+}
+
+#nav ul{
+	margin: 0 0 0 2em;
+	padding: 0;
+	float:right;
+}
+
+#nav li{
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	text-align: center;
+	line-height: 3.2em;
+	font-size: 0.8em;
+}
+
+.btn{
+	cursor: hand;
+	background-color: #b5f0ff;
+	width: 3.2em;
+	height:3.2em;
+}
+.btn:hover{
+	background-color: #8fe9d1;
+}
+
+.btn2{
+	cursor: hand;
+	background-color: #87caee;
+	width: 3.2em;
+	height:3.2em;
+}
+.btn2:hover{
+	background-color: #7bbee2;
+}
+#nav a{ color: #d2ecff; text-decoration: none;}
+.play{color: #ebd2a7;}
+
+.volmute{
+	background-color: #8ec7e6 !important;
+	color: #9dd3f0;
+	width: 3.2em;
+	height:3.2em;
+}
+.muted{
+	background-color: #ebb7b7;
+}
+.muted:hover{
+	background-color: #ffcdcd;
+}
+.von{
+	background-color: #8fe9d1;
+}
+
+.col1_sunrise{background: #e70b0b url("images/bg_sunrise.jpg") top left no-repeat;}
+.col1_morning{background: #f3f143 url("images/bg_morning.jpg") top left no-repeat;}
+.col1_midday{background: #8cf8f8 url("images/bg_midday.jpg") top left no-repeat;}
+.col1_evening{background: #efa20e url("images/bg_evening.jpg") top left no-repeat;}
+.col1_night{background: #155188 url("images/bg_night.jpg") top left no-repeat;}
+
+.col1_sunrise #news span{color: #aaa;}
+.col1_morning #news span{color: #999;}
+.col1_midday #news span{color: #aaa;}
+.col1_evening #news span{color: #333;}
+.col1_night #news span{color: #999;}
+
+#digi{
+position: absolute;
+top: -1.9em;
+left: -0.05em;
+z-index: 99;
+margin: 0;
+padding: 0;
+
+}
+#dc{
+width: 100%;
+color: #fff;	
+font-size: 6em;
+text-shadow: 0 0 20px #000;
+
+}
+#date{
+display: block;
+width: 100%;
+text-align: justify;
+text-shadow: 0 0 20px #000;
+font-size: 1.4em;
+position: relative;
+top: -1.3em;
+left: 0em;
+
+}
+#date:after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+}
+
+#news{
+font-size: 2em;
+text-align: right;
+padding-right: 1.5em;
+}
+#news span{
+font-size: 0.8em;
+color: #999;
+}
+#news a{
+text-decoration: none;
+color: #fff;
+}
+.newsbutton{
+	text-decoration: underline;
+}
+
+#web_frame{
+	width: 100%;
+	height: 100%;
+	border: 0;
+}
+
+#ytplayer{border-top: 100px solid #000;}
+
+.ipchange{
+	position: absolute;
+	z-index: 99;
+	width: 50%;
+	top: 30%;
+	left: 25%;
+	background-color: red;
+	color: white;
+	border: 10px solid black;
+	text-align: center;
+	font-size: 5em;
+}

@@ -1,0 +1,120 @@
+.weather{
+width: 100%;
+background-color: #333;
+margin: 0;
+
+}
+
+.w_left{
+    width: 60%;
+    float: left;
+    padding-top: 3em;
+}
+
+
+.w_right{
+        width: 40%;
+    float: right;
+    
+}
+
+
+.climate_bg {
+background-color: #fff;
+text-align: center;
+}
+
+.weathericon {
+    width: 70%;
+  height: auto;
+  overflow: hidden;
+  margin-top: -40px;
+  margin-bottom: -40px;
+}
+
+.info_bg {
+background-color: #1ab1ed;
+}
+
+.i1{
+    width: 35%;
+    float: left;
+text-align: center;
+}
+.i1 span{
+    vertical-align: middle
+}
+
+.i2{
+    width: 65%;
+    float: right;
+text-align: center;
+}
+.i2 span{
+    vertical-align: middle
+}
+
+
+.dropicon {
+width: 50px;
+  height: auto;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+.not-available, .failed {
+
+}
+
+.humidity {
+
+}
+
+
+.location {
+    font-size: 1em;
+text-align: center;
+}
+
+.temperature {
+font-size: 4em;
+text-align: center;
+}
+
+.windicon {
+width: 50px;
+  height: auto;
+  overflow: hidden;
+    vertical-align: middle;
+}
+
+.windspeed {
+
+}
+
+.windspeed p {
+
+}
+
+.updated{
+font-size: 0.5em;
+text-align: center;
+border: 1px solid #333;
+}
+.forecast{
+    background-color: #fff;
+    color: #333;
+    text-align: center;
+
+}
+.forecast span{
+    width: 5em;
+ display: inline-block;
+font-size: 0.8em;
+padding-bottom: 5px;
+}
+.forecast span img{
+    width: 50px;
+  height: auto;
+  margin-bottom: -10px;
+}
