@@ -10,6 +10,16 @@ $mus=(isset($_REQUEST['mus'])?$_REQUEST['mus']:0);
 // multiplier m
 $m=1000;
 
+/*
+name - short name for each button
+url - youtube live video id
+time - the time in seconds before the video will change. 1200=20 mins. 300= 5mins
+mus - 0  or 1. I use it to denote music, but basically it will let you have 2 sets of videos that change, but dont cross over
+so if you click a mus=0 video it will only chnage between other mus0 vids.
+If you set only 1 as mus0 then the same video will refresh every 20 mins.
+note: many of these streams will be out of date, so select your own.
+*/
+
 // sky news
 $streams[1]['name']="SN";
 $streams[1]['url']="y60wDzZt8yg";
@@ -116,7 +126,10 @@ function whatsnext($s,$mus,$streams){
 
 <body>
 <?php
-echo check_IP();
+// if you run a live webserver or want to know if you IP changes, you can get a big on screen warning.
+// enable the check_ip() call below.
+// edit the file ip.txt with your current IP when it changes & you have taken action.
+// echo check_IP();
 ?>
     <div class ="col1">
         <p><iframe id="ytplayer" width="100%" height="500" src="https://www.youtube.com/embed/<?php echo $u; ?>?rel=0&autoplay=1&enablejsapi=1" frameborder="0" allowfullscreen></iframe>
@@ -289,12 +302,12 @@ function check_IP(){
 
 
 function mail_test(){
-    
-    $to="riquez@gmail.com";
+    // just a mail function for testing - you dont need it
+    $to="test1234@gmail.com";
     $subject = "mail test";
-	$header = "From: pi@d4damage.net\n";
-	$header .= "Reply-To: pi@d4damage.net\n";
-	$header .= "Return-Path: pi@d4damage.net\n";
+	$header = "From: pi@test1234.net\n";
+	$header .= "Reply-To: pi@test1234.net\n";
+	$header .= "Return-Path: pi@test1234.net\n";
 	
 	$message = "===============================================\n";
 	$message .="This is a test\n";
