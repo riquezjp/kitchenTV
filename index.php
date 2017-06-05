@@ -2,23 +2,12 @@
 date_default_timezone_set("Asia/Tokyo"); 
 $date= strtoupper(date("M jS l", time()));
 
-//$mail_test=mail_test();
 
 $vol=(isset($_REQUEST['f_vol'])?$_REQUEST['f_vol']:20);
 $mus=(isset($_REQUEST['mus'])?$_REQUEST['mus']:0);
 // youtube code, time to display in seconds
 // multiplier m
 $m=1000;
-
-/*
-name - short name for each button
-url - youtube live video id
-time - the time in seconds before the video will change. 1200=20 mins. 300= 5mins
-mus - 0  or 1. I use it to denote music, but basically it will let you have 2 sets of videos that change, but dont cross over
-so if you click a mus=0 video it will only chnage between other mus0 vids.
-If you set only 1 as mus0 then the same video will refresh every 20 mins.
-note: many of these streams will be out of date, so select your own.
-*/
 
 // sky news
 $streams[1]['name']="SN";
@@ -28,48 +17,45 @@ $streams[1]['mus']=0;
 
 // monstercat music
 $streams[2]['name']="MC";
-$streams[2]['url']="T1H39aSWMM";
+$streams[2]['url']="4R-JGw3VTuY";
 $streams[2]['time']=300*$m;
 $streams[2]['mus']=1;
 
-
-// france 24 news
-$streams[3]['name']="FR";
-$streams[3]['url']="1Ydto3Iyzic";
-$streams[3]['time']=1200*$m;
-$streams[3]['mus']=0;
-
-
 // jp weather
-//$streams[3]['name']="JP";
-//$streams[3]['url']="kfTq_A9nBM0";
-//$streams[3]['time']=300*$m;
-//$streams[3]['mus']=0;
+$streams[3]['name']="JP";
+$streams[3]['url']="kfTq_A9nBM0";
+$streams[3]['time']=300*$m;
+$streams[3]['mus']=0;
 
 // mixhound chillstep 
 $streams[4]['name']="MH";
-$streams[4]['url']="vA08pZypWM";
+$streams[4]['url']="dxVzsVFAw34";
 $streams[4]['time']=300*$m;
 $streams[4]['mus']=1;
 
-// nasa
-$streams[5]['name']="NS";
-$streams[5]['url']="RtU_mdL2vBM";
-$streams[5]['time']=300*$m;
-$streams[5]['mus']=1;
+// france 24 news
+$streams[5]['name']="FR";
+$streams[5]['url']="dHI7hP90ze0";
+$streams[5]['time']=1200*$m;
+$streams[5]['mus']=0;
 
 // NCS
 $streams[6]['name']="NC";
-$streams[6]['url']="asmVy7PgTeQ";
+$streams[6]['url']="Po9WWnizhug";
 $streams[6]['time']=300*$m;
 $streams[6]['mus']=1;
 
 // earthquake
-//$streams[7]['name']="EQ";
-//$streams[7]['url']="nnJ-1x81yoA";
-//$streams[7]['time']=300*$m;
-//$streams[7]['mus']=0;
+$streams[7]['name']="EQ";
+$streams[7]['url']="MpV7epyOAGo";
+$streams[7]['time']=300*$m;
+$streams[7]['mus']=0;
 
+// nasa
+$streams[8]['name']="NS";
+$streams[8]['url']="UGPuEDyAsU8";
+$streams[8]['time']=300*$m;
+$streams[8]['mus']=1;
 
 // mixhound chillstep dxVzsVFAw34
 // deephouse fFppH4_sXBc
@@ -125,14 +111,9 @@ function whatsnext($s,$mus,$streams){
 </head>
 
 <body>
-<?php
-// if you run a live webserver or want to know if you IP changes, you can get a big on screen warning.
-// enable the check_ip() call below.
-// edit the file ip.txt with your current IP when it changes & you have taken action.
-// echo check_IP();
-?>
+
     <div class ="col1">
-        <p><iframe id="ytplayer" width="100%" height="500" src="https://www.youtube.com/embed/<?php echo $u; ?>?rel=0&autoplay=1&enablejsapi=1" frameborder="0" allowfullscreen></iframe>
+        <p><iframe id="ytplayer" width="100%" height="410" src="https://www.youtube.com/embed/<?php echo $u; ?>?rel=0&autoplay=1&enablejsapi=1" frameborder="0" allowfullscreen></iframe>
         </p>
         <span id="digi">
             <span id="dc"></span><br />
@@ -288,34 +269,4 @@ function isNews($t){
 }
 
 
-function check_IP(){
-    $realIP = file_get_contents("http://ipecho.net/plain");
-    $value="";
-    $file="ip.txt";
-    $contents=file_get_contents($file);
-   if(!empty($realIP) && $contents != $realIP){
-   // if($contents != $realIP){
-        $value="<div class=\"ipchange\">IP CHANGE<br>$realIP<br><span style=\"font-size: small;\">old: $contents</span></div>";
-    }
-    return $value;
-}
-
-
-function mail_test(){
-    // just a mail function for testing - you dont need it
-    $to="test1234@gmail.com";
-    $subject = "mail test";
-	$header = "From: pi@test1234.net\n";
-	$header .= "Reply-To: pi@test1234.net\n";
-	$header .= "Return-Path: pi@test1234.net\n";
-	
-	$message = "===============================================\n";
-	$message .="This is a test\n";
-	$message .="===============================================\n";
-	$message .="\n";
-
-    $result=mail($to,$subject,$message,$header);
-    
-    return $result;
-}
 ?>
