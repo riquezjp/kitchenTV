@@ -24,14 +24,14 @@ $ipchecker=0;
 // To check your ip visit whatismyip.com
 $ip="153.189.6.28";
 
-// alternate file method
+// alternate file method - just create this text file with your IP & nothing else.
 //$ip=file_get_contents('ip.txt');
 
 // ##### YouTube #####
 // set the height of the youtube player. 500 or 600 generally works best.
 // you should set this so that the buttons at the bottom of the screen are still visible.
 $yt_height = 600;
-// additionally check the rasp.css file for #ytplayer so you can set a black border above the video 
+// additionally check the main.css file for #ytplayer so you can set a black border above the video 
 
 // Video streams
 // name = a short name or abreviation to help you remmeber the channel. A 2 letter code is recommended; BB, FR, MC
@@ -40,7 +40,7 @@ $yt_height = 600;
 // mus = 0 or 1. mus=0 channels will switch between each other, as will mus=1, but they wont cross over unless you manually click.
 // Its is designed to have MUSIC separate from other content. So you can put the Kitchen TV into music mode.
 
-
+// BBC News
 $streams[]=array(
     "name" => "BB",
     "url" => "HXeGpCFGu-k",
@@ -48,7 +48,7 @@ $streams[]=array(
     "mus" => 0
 );
 
-
+// Monstercat Music
 $streams[]=array(
     "name" => "MC",
     "url" => "cCmJdLA5b1I",
@@ -56,7 +56,7 @@ $streams[]=array(
     "mus" => 1
 );
 
-
+// France 24 News
 $streams[]=array(
     "name" => "FR",
     "url" => "Fwxuzl4ZrHo",
@@ -64,7 +64,7 @@ $streams[]=array(
     "mus" => 0
 );
 
-
+// Music Hound
 $streams[]=array(
     "name" => "MH",
     "url" => "WNFFx08d6_I",
@@ -72,7 +72,7 @@ $streams[]=array(
     "mus" => 1
 );
 
-
+// Nasa live
 $streams[]=array(
     "name" => "NS",
     "url" => "RtU_mdL2vBM",
@@ -80,7 +80,7 @@ $streams[]=array(
     "mus" => 0
 );
 
-
+// No Copyright Sounds
 $streams[]=array(
     "name" => "NC",
     "url" => "1-AODuJpCG4",
@@ -88,7 +88,7 @@ $streams[]=array(
     "mus" => 1
 );
 
-
+// Some channels change their url frequently, so watch out for that & pick what works for you.
 
 
 ?>
