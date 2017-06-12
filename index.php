@@ -7,7 +7,7 @@ require_once("inc_library.php");
     <meta charset="utf-8">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700,inherit,400" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="weather.css">
-    <link rel="stylesheet" href="rasp.css">
+    <link rel="stylesheet" href="main.css">
 
     <script type="text/javascript">
         // PHP dependant js vars ~
@@ -74,7 +74,7 @@ require_once("inc_library.php");
             </ul>
             
             <ul class="vid">
-                <a href="web.php"><li class="btn2">www</li></a>
+                <a href="web_browse.php"><li class="btn2">www</li></a>
                         </ul>
 
 

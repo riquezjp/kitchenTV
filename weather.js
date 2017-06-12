@@ -1,7 +1,7 @@
 // v3.1.0
 //Docs at http://simpleweatherjs.com
  
-
+// This code has been modified by RiquezJP
 
 function loadWeather(wdays,wloc){
 
@@ -17,6 +17,7 @@ function loadWeather(wdays,wloc){
 	humidity = weather.humidity + ' %';
 	updated = weather.updated;
 
+	// new loop for days
 	if(wdays>9){wdays=9}
 	var iconcode='';
 	var fi= new Array();
