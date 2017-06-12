@@ -1,14 +1,12 @@
 // v3.1.0
 //Docs at http://simpleweatherjs.com
-
- loadWeather();
  
 
 
-function loadWeather(){
+function loadWeather(wdays,wloc){
 
  $.simpleWeather({
-    location: 'Naha, Japan',
+    location: wloc,
     woeid: '',
     unit: 'c',
     success: function(weather) {
@@ -18,12 +16,16 @@ function loadWeather(){
 	wind = weather.wind.speed + ' ' + weather.units.speed;
 	humidity = weather.humidity + ' %';
 	updated = weather.updated;
-	f1i = weather.forecast[1].code;
-	f2i = weather.forecast[2].code;
-	f3i = weather.forecast[3].code;
-	f1d = weather.forecast[1].day;
-	f2d = weather.forecast[2].day;
-	f3d = weather.forecast[3].day;
+
+	var iconcode='';
+	var fi= new Array();
+	var fd= new Array();
+	for (var i=1;i<=wdays;i++){
+		fi[i]= weather.forecast[i].code;
+		fd[i] = weather.forecast[i].day;
+		iconcode += '<span><img src="images/weathericons/' + fi[i] + '.svg" /><br />' + fd[i] + '</span>';
+	}
+
 
 	$(".location").text(city);
 	$(".temperature").html(temp);
@@ -31,7 +33,7 @@ function loadWeather(){
 	$(".windspeed").html(wind);
 	$(".humidity").text(humidity);
 	$(".updated").text(updated);	
-	$(".forecast").html('<span><img src="images/weathericons/' + f1i + '.svg" /><br />' + f1d + '</span><span><img src="images/weathericons/' + f2i + '.svg" /><br />' + f2d + '</span><span><img src="images/weathericons/' + f3i + '.svg" /><br />' + f3d + '</span>');	
+	$(".forecast").html(iconcode);	
     },
     error: function(error) {
       $(".error").html('<p>'+error+'</p>');
