@@ -17,7 +17,7 @@ $wloc="Naha, Japan";
 $wdays=3;
 
 // ##### IP Checker, 0=off 1=on #####
-$ipchecker=1;
+$ipchecker=0;
 
 // ##### Your IP address #####
 // You need to update this if your IP changes to turn off the on-screen warining
