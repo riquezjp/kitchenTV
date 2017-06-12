@@ -8,18 +8,15 @@ Here is a youtube video of it in action : https://www.youtube.com/watch?v=U5OF6t
 If you want to set up the same thing: ======
 
 1) Download my web files & upload to your own web space or host them locally.
-This is the original download, but you can just use the github files now eh? ;-)
-http://bit.ly/2myjcHM
 
 2) EDIT the files to personalise it for your own needs:
 
 * config.php has easy user settings you can change. A list of YouTube LIVE channels, you can edit the list for your own channels.
-
-* weather.js EDIT your city, country location.
+  - EDIT your city, country location for the weather api, how many days forecast
 
 * images/cface4.png EDIT the clock image if you want your own design. You will find the background colours for sunset, sunrise etc in the images folder too.
 
-* The page layout is designed to fit my TV. It will work on other screens but you would probably want to adjust slightly so it suits your screen. config.php adjust the height of the youtube video. rasp.css edit the #ytplayer border. Adjust CSS font sizes in weather.css & rasp.css to suit your needs. The defaults should work OK.
+* The page layout is designed to fit my TV. It will work on other screens but you would probably want to adjust slightly so it suits your screen. config.php adjust the height of the youtube video. main.css edit the #ytplayer border. Adjust CSS font sizes in weather.css & main.css to suit your needs. The defaults should work OK.
 
 * The www web browsing works in a frame, so it doesnt always work well with some websites - just be aware of this, you can always right-click open in new tab to get around that.
 
