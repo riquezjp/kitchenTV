@@ -1,96 +1,6 @@
 <?php
-date_default_timezone_set("Asia/Tokyo"); 
-$date= strtoupper(date("M jS l", time()));
-
-
-$vol=(isset($_REQUEST['f_vol'])?$_REQUEST['f_vol']:20);
-$mus=(isset($_REQUEST['mus'])?$_REQUEST['mus']:0);
-// youtube code, time to display in seconds
-// multiplier m
-$m=1000;
-
-// sky news
-$streams[1]['name']="SN";
-$streams[1]['url']="y60wDzZt8yg";
-$streams[1]['time']=1200*$m;
-$streams[1]['mus']=0;
-
-// monstercat music
-$streams[2]['name']="MC";
-$streams[2]['url']="4R-JGw3VTuY";
-$streams[2]['time']=300*$m;
-$streams[2]['mus']=1;
-
-// jp weather
-$streams[3]['name']="JP";
-$streams[3]['url']="kfTq_A9nBM0";
-$streams[3]['time']=300*$m;
-$streams[3]['mus']=0;
-
-// mixhound chillstep 
-$streams[4]['name']="MH";
-$streams[4]['url']="dxVzsVFAw34";
-$streams[4]['time']=300*$m;
-$streams[4]['mus']=1;
-
-// france 24 news
-$streams[5]['name']="FR";
-$streams[5]['url']="dHI7hP90ze0";
-$streams[5]['time']=1200*$m;
-$streams[5]['mus']=0;
-
-// NCS
-$streams[6]['name']="NC";
-$streams[6]['url']="Po9WWnizhug";
-$streams[6]['time']=300*$m;
-$streams[6]['mus']=1;
-
-// earthquake
-$streams[7]['name']="EQ";
-$streams[7]['url']="MpV7epyOAGo";
-$streams[7]['time']=300*$m;
-$streams[7]['mus']=0;
-
-// nasa
-$streams[8]['name']="NS";
-$streams[8]['url']="UGPuEDyAsU8";
-$streams[8]['time']=300*$m;
-$streams[8]['mus']=1;
-
-// mixhound chillstep dxVzsVFAw34
-// deephouse fFppH4_sXBc
-// NCS wCe1zFNSAzU
-// traplife j5tUmWzEAO4
-
-// goodlife music DekL5q5e9lM
-// chillhop cafe mx6t6E24SSM
-
-$s=getS($streams);
-$n=$streams[$s]['name'];
-$u=$streams[$s]['url'];
-$t=$streams[$s]['time'];
-
-
-$next=whatsnext($s,$mus,$streams);
-
-function whatsnext($s,$mus,$streams){
-    $next=0;
-    $i=1;
-        foreach($streams as $k1 => $k2){
-            if($mus==1 && $i>$s && $k2['mus']==1 && $next==0) {
-                $next=$i;
-            }
-            if($mus==0 && $i>$s && $k2['mus']==0 && $next==0){
-                $next=$i;
-            }
-        $i++;
-    }
-   $next=($next==0?1:$next);
-    return $next;
-}
-
-
-//$next=($s==count($streams)?1:$s+1);
+require_once("config.php");
+require_once("inc_library.php");
 ?>
 <html>
 <head>
@@ -111,9 +21,10 @@ function whatsnext($s,$mus,$streams){
 </head>
 
 <body>
+<?php if($ipchecker==1){echo check_IP($ip);} ?>
 
     <div class ="col1">
-        <p><iframe id="ytplayer" width="100%" height="410" src="https://www.youtube.com/embed/<?php echo $u; ?>?rel=0&autoplay=1&enablejsapi=1" frameborder="0" allowfullscreen></iframe>
+        <p><iframe id="ytplayer" width="100%" height="<?php echo $yt_height; ?>" src="https://www.youtube.com/embed/<?php echo $u; ?>?rel=0&autoplay=1&enablejsapi=1" frameborder="0" allowfullscreen></iframe>
         </p>
         <span id="digi">
             <span id="dc"></span><br />
@@ -204,69 +115,5 @@ function whatsnext($s,$mus,$streams){
 </html>
 
 <?php
-function bg($id){
-    $col2=array('col1_sunrise','col1_morning','col1_midday','col1_evening','col1_night');
-    $hr=date('H', time()); 
-
-    if($hr<=5){
-        $class=${$id}[4];
-    }elseif($hr<=9){
-        $class=${$id}[0];
-    }elseif($hr<=12){
-        $class=${$id}[1]; 
-    }elseif($hr<=17){
-        $class=${$id}[2];    
-    }elseif($hr<=20){
-        $class=${$id}[3];
-    }else{
-        $class=${$id}[4];
-    }
-    return $class;
-}
-
-function getHeadlines(){
-    $html="";
-    $file=file_get_contents("http://feeds.bbci.co.uk/news/rss.xml?edition=uk"); 
-    preg_match_all("%<title>(.*?)</title>%s", $file, $titles,PREG_PATTERN_ORDER,920);
-    preg_match_all("%<link>(.*?)</link>%s", $file, $links,PREG_PATTERN_ORDER,920);
-    preg_match_all("%<description>(.*?)</description>%s", $file, $desc,PREG_PATTERN_ORDER,920);
-
-    for($i=0;$i<=19;$i+=2){
-        $html.="'<a href=\"".$links[1][$i]."\">".clean($titles[1][$i])."</a><br><span>".clean($desc[1][$i])."</span>',";
-    }
-    return $html;
-}
-
-function clean($val){
-    $val=str_replace("'","",$val);
-    $val=str_replace("<![CDATA[","",$val);
-     $val=str_replace("]]>","",$val);
-    return $val;
-}
-
-function getS($streams){
-$output=1;
-    if(isset($_GET['s']) && array_key_exists($_GET['s'],$streams)){
-        $output=$_GET['s'];
-    } 
-    return $output;
-}
-
-function isPlaying($key){
-    $c="";
-    if(isset($_GET['s']) && $_GET['s']==$key){
-        $c=" play";
-    }
-    return $c;
-}
-
-function isNews($t){
-    $classname="";
-    if($t>1000){
-        $classname=" newsbutton";
-    }
-    return $classname;
-}
-
-
+// EOF
 ?>

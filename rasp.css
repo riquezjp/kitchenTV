@@ -1,4 +1,4 @@
-  body {
+body {
   background-color: #9eddff;
   font: 400 1em/1.38 Montserrat;
   color: #ffffff;
@@ -22,6 +22,7 @@
 	height: 100%; 
 	float:right; 
 	/*background-color: #de2829;*/
+	padding-top: 100px;
 }
 
 .clocks {
@@ -130,15 +131,15 @@ left: 0em;
 }
 
 #news{
-font-size: 1.8em;
 text-align: right;
 padding-right: 1.5em;
 }
 #news span{
-font-size: 0.5em;
+font-size: 1.8vw;
 color: #999;
 }
 #news a{
+font-size: 2.2vw;
 text-decoration: none;
 color: #fff;
 }
@@ -151,6 +152,9 @@ color: #fff;
 	height: 100%;
 	border: 0;
 }
+/*
+#ytplayer{border-top: 100px solid #000;}
+*/
 
 .ipchange{
 	position: absolute;
