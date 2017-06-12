@@ -17,6 +17,7 @@ function loadWeather(wdays,wloc){
 	humidity = weather.humidity + ' %';
 	updated = weather.updated;
 
+	if(wdays>9){wdays=9}
 	var iconcode='';
 	var fi= new Array();
 	var fd= new Array();

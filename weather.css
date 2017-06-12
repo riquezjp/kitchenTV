@@ -28,8 +28,9 @@ text-align: center;
     width: 70%;
   height: auto;
   overflow: hidden;
-  margin-top: -40px;
-  margin-bottom: -40px;
+  margin-top: -4vw;
+  margin-bottom: -4vw;
+  
 }
 
 .info_bg {
@@ -114,7 +115,8 @@ font-size: 0.8em;
 padding-bottom: 5px;
 }
 .forecast span img{
-    width: 50px;
+    width: 5vw;
   height: auto;
   margin-bottom: -10px;
+
 }

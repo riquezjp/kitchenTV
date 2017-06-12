@@ -22,14 +22,15 @@ body {
 	height: 100%; 
 	float:right; 
 	/*background-color: #de2829;*/
-	padding-top: 100px;
+	
 }
 
 .clocks {
     height: 500px;
-    margin: auto;
+    margin: 50px auto;
     position: relative;
     width: 500px;
+
 }
 
 #nav ul{
@@ -135,11 +136,11 @@ text-align: right;
 padding-right: 1.5em;
 }
 #news span{
-font-size: 1.8vw;
+font-size: 1.5vw;
 color: #999;
 }
 #news a{
-font-size: 2.2vw;
+font-size: 2.1vw;
 text-decoration: none;
 color: #fff;
 }
@@ -152,9 +153,12 @@ color: #fff;
 	height: 100%;
 	border: 0;
 }
-/*
-#ytplayer{border-top: 100px solid #000;}
-*/
+
+#ytplayer{
+	/*border-top: 100px solid #000;*/
+
+	}
+
 
 .ipchange{
 	position: absolute;

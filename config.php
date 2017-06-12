@@ -13,7 +13,7 @@ $date= strtoupper(date("M jS l", time()));
 // see weather.js file
 // weather location
 $wloc="Naha, Japan";
-// weather forecast days
+// weather forecast days, MAX 9
 $wdays=3;
 
 // ##### IP Checker, 0=off 1=on #####
