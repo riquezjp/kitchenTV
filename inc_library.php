@@ -62,15 +62,15 @@ function bg($id){
 }
 
 // get top 20 headlines from BBC news website RSS feed
-function getHeadlines(){
+function getHeadlines($news_url){
     $html="";
-    $file=file_get_contents("http://feeds.bbci.co.uk/news/rss.xml?edition=uk"); 
+    $file=file_get_contents($news_url); 
     preg_match_all("%<title>(.*?)</title>%s", $file, $titles,PREG_PATTERN_ORDER,920);
     preg_match_all("%<link>(.*?)</link>%s", $file, $links,PREG_PATTERN_ORDER,920);
     preg_match_all("%<description>(.*?)</description>%s", $file, $desc,PREG_PATTERN_ORDER,920);
 
     for($i=0;$i<=19;$i+=2){
-        $html.="'<a href=\"".$links[1][$i]."\">".clean($titles[1][$i])."</a><br><span>".clean($desc[1][$i])."</span>',";
+        $html.="'<a href=\"".$links[1][$i]."\">".clean($titles[1][$i])."</a><br><span>".substr(clean($desc[1][$i]),0,199)."</span>',";
     }
     return $html;
 }
@@ -78,8 +78,13 @@ function getHeadlines(){
 // strip CDATA tags
 function clean($val){
     $val=str_replace("'","",$val);
+    $val=str_replace("’","",$val);
+     $val=str_replace("\n","",$val);
     $val=str_replace("<![CDATA[","",$val);
      $val=str_replace("]]>","",$val);
+     $val=strip_tags(html_entity_decode($val));
+     $val=htmlentities($val);
+     $val=json_encode($val);
     return $val;
 }
 

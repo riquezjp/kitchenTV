@@ -3,15 +3,15 @@
  
 // This code has been modified by RiquezJP
 
-function loadWeather(wdays,wloc){
+function loadWeather(wdays,wloc,wunit){
 
  $.simpleWeather({
     location: wloc,
     woeid: '',
-    unit: 'c',
+    unit: wunit,
     success: function(weather) {
 	city = weather.city;
-	temp = weather.temp+'&deg;C';
+	temp = weather.temp+'&deg;'+wunit;
 	wcode = '<img class="weathericon" src="images/weathericons/' + weather.code + '.svg">';
 	wind = weather.wind.speed + ' ' + weather.units.speed;
 	humidity = weather.humidity + ' %';

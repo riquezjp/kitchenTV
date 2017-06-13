@@ -16,7 +16,7 @@ require_once("inc_library.php");
         // volume ON/OFF morning/evening
         var on, off, vol = <?php echo $vol; ?>;
         // bbc headlines 
-        var headlines =[<?php echo getHeadlines(); ?>];
+        var headlines =[<?php echo getHeadlines($news_url); ?>];
 
     </script>
 </head>
@@ -110,7 +110,7 @@ require_once("inc_library.php");
     <script type="text/javascript">    
         auto_volume();
         showNews(headlines);
-        loadWeather(<?php echo $wdays.",'".$wloc."'"; ?>);
+        loadWeather(<?php echo $wdays.",'".$wloc."','".$wunit."'"; ?>);
     </script>
     
 </body>

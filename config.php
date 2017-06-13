@@ -11,10 +11,13 @@ $date= strtoupper(date("M jS l", time()));
 
 // ##### Weather #####
 // see weather.js file
-// weather location
-$wloc="Naha, Japan";
+// weather location - examples: "Manchester, England", "Paris, Texas", "Paris, France"
+// or check on Yahoo weather if you have trouble,
+$wloc="Sashiki, Japan";
 // weather forecast days, MAX 9
 $wdays=3;
+// Temperature units; C or F
+$wunit = "C";
 
 // ##### IP Checker, 0=off 1=on #####
 $ipchecker=0;
@@ -90,5 +93,15 @@ $streams[]=array(
 
 // Some channels change their url frequently, so watch out for that & pick what works for you.
 
+
+// ##### News Feed #####
+// url of RSS news feed
+// this works off <title> <description> & <link> so those elements must be present in the XML doc
+
+//$news_url="http://www.aljazeera.com/xml/rss/all.xml";
+$news_url="http://feeds.bbci.co.uk/news/rss.xml?edition=uk";
+//$news_url="http://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml";
+//$news_url="https://news.google.com/news?cf=all&hl=en&pz=1&ned=us&output=rss";
+//$news_url="http://www.techradar.com/rss";
 
 ?>
