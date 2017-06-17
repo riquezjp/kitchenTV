@@ -2,13 +2,12 @@
 width: 100%;
 background-color: #333;
 margin: 0;
-
 }
 
 .w_left{
     width: 60%;
     float: left;
-    padding-top: 3vw;
+    padding-top: 1.0vw;
 }
 
 
@@ -27,6 +26,7 @@ text-align: center;
 .weathericon {
     width: 70%;
   height: auto;
+  max-height: 350px;
   overflow: hidden;
   margin-top: -4vw;
   margin-bottom: -4vw;
@@ -78,8 +78,14 @@ text-align: center;
 }
 
 .temperature {
-font-size: 8vw;
+font-size: 7vw;
 text-align: center;
+}
+
+@media screen and (min-width: 1920px) {
+  .temperature {
+     font-size: 136px;
+  }
 }
 
 .windicon {
@@ -115,8 +121,10 @@ font-size: 0.8em;
 padding-bottom: 5px;
 }
 .forecast span img{
-    width: 5vw;
+    width: 4vw;
   height: auto;
   margin-bottom: -10px;
 
 }
+
+

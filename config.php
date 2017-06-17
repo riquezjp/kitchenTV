@@ -13,9 +13,9 @@ $date= strtoupper(date("M jS l", time()));
 // see weather.js file
 // weather location - examples: "Manchester, England", "Paris, Texas", "Paris, France"
 // or check on Yahoo weather if you have trouble,
-$wloc="Sashiki, Japan";
+$wloc="Nanjo-shi";
 // weather forecast days, MAX 9
-$wdays=3;
+$wdays=4;
 // Temperature units; C or F
 $wunit = "C";
 
@@ -31,11 +31,6 @@ $ip="153.189.6.28";
 //$ip=file_get_contents('ip.txt');
 
 // ##### YouTube #####
-// set the height of the youtube player. 500 or 600 generally works best.
-// you should set this so that the buttons at the bottom of the screen are still visible.
-$yt_height = 600;
-// additionally check the main.css file for #ytplayer so you can set a black border above the video 
-
 // Video streams
 // name = a short name or abreviation to help you remmeber the channel. A 2 letter code is recommended; BB, FR, MC
 // url = the youtube video ID
@@ -43,10 +38,10 @@ $yt_height = 600;
 // mus = 0 or 1. mus=0 channels will switch between each other, as will mus=1, but they wont cross over unless you manually click.
 // Its is designed to have MUSIC separate from other content. So you can put the Kitchen TV into music mode.
 
-// BBC News
+// Sky News
 $streams[]=array(
-    "name" => "BB",
-    "url" => "HXeGpCFGu-k",
+    "name" => "SN",
+    "url" => "y60wDzZt8yg",
     "time" => 1200,
     "mus" => 0
 );
