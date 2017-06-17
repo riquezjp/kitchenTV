@@ -3,6 +3,13 @@
 // User settings
 // Edit the parameters in this file to cusomise your KitchenTV
 
+
+// ##### ASPECT ####
+// If your TV aspect is more sqaure than regular widescreen you can use the 4:3 mode
+// m43 = 4:3 aspect, m169 = 16:9 aspect
+//$aspect ="m43";
+$aspect ="m169"
+
 // ##### Date / Timezone #####
 // You can safely disable my default timezone by adding // to the start of the line.
 date_default_timezone_set("Asia/Tokyo"); 

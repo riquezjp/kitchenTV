@@ -25,13 +25,15 @@ require_once("inc_library.php");
 <?php if($ipchecker==1){echo check_IP($ip);} ?>
 
     <div class ="col1">
+
+    
       
         <span id="digi">
             <span id="dc"></span><br />
             <span id="date"><?php echo $date; ?></span>
         </span>
 
-        <div class="lower">
+        <div class="<?php echo $aspect; ?>">
 
  <div class="videoWrapper"><iframe id="ytplayer" width="650" height="349" src="https://www.youtube.com/embed/<?php echo $u; ?>?rel=0&amp;autoplay=1&amp;enablejsapi=1" frameborder="0" allowfullscreen></iframe>
         </div>
