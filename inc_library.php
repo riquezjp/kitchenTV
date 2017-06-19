@@ -3,7 +3,7 @@
 // index initialisations
 
 // initial volume 20, or use what was sent in the post/get
-$vol=(isset($_REQUEST['f_vol'])?$_REQUEST['f_vol']:100);
+$vol=(isset($_REQUEST['f_vol'])?$_REQUEST['f_vol']:20);
 // mus default is 0, or use what was sent in the post/get
 $mus=(isset($_REQUEST['mus'])?$_REQUEST['mus']:0);
 // youtube time to display in seconds
@@ -25,9 +25,12 @@ $next=whatsnext($s,$mus,$streams);
 
 // what is the next video stream to play
 function whatsnext($s,$mus,$streams){
+    $f0=''; $f1='';
     $next=0;
     $i=0;
         foreach($streams as $k1 => $k2){
+            $f0=($k2['mus']==0 && empty($f0)?$i:$f0);
+            $f1=($k2['mus']==1 && empty($f1)?$i:$f1);
             if($mus==1 && $i>$s && $k2['mus']==1 && $next==0) {
                 $next=$i;
             }
@@ -35,7 +38,16 @@ function whatsnext($s,$mus,$streams){
                 $next=$i;
             }
         $i++;
+        }
+
+    // catch overspill
+    if($mus==0 && $streams[$next]['mus']!=0){
+        $next=$f0;
     }
+    if($mus==1 && $streams[$next]['mus']!=1){
+        $next=$f1;
+    }
+
    //$next=($next==0?1:$next);
     return $next;
 }
@@ -62,15 +74,15 @@ function bg($id){
 }
 
 // get top 20 headlines from BBC news website RSS feed
-function getHeadlines(){
+function getHeadlines($news_url){
     $html="";
-    $file=file_get_contents("http://feeds.bbci.co.uk/news/rss.xml?edition=uk"); 
+    $file=file_get_contents($news_url); 
     preg_match_all("%<title>(.*?)</title>%s", $file, $titles,PREG_PATTERN_ORDER,920);
     preg_match_all("%<link>(.*?)</link>%s", $file, $links,PREG_PATTERN_ORDER,920);
     preg_match_all("%<description>(.*?)</description>%s", $file, $desc,PREG_PATTERN_ORDER,920);
 
     for($i=0;$i<=19;$i+=2){
-        $html.="'<a href=\"".$links[1][$i]."\">".clean($titles[1][$i])."</a><br><span>".clean($desc[1][$i])."</span>',";
+        $html.="'<a href=\"".$links[1][$i]."\">".clean($titles[1][$i])."</a><br><span>".substr(clean($desc[1][$i]),0,199)."</span>',";
     }
     return $html;
 }
@@ -78,8 +90,13 @@ function getHeadlines(){
 // strip CDATA tags
 function clean($val){
     $val=str_replace("'","",$val);
+    $val=str_replace("’","",$val);
+     $val=str_replace("\n","",$val);
     $val=str_replace("<![CDATA[","",$val);
      $val=str_replace("]]>","",$val);
+     $val=strip_tags(html_entity_decode($val));
+     $val=htmlentities($val);
+     $val=json_encode($val);
     return $val;
 }
 
@@ -144,5 +161,12 @@ function mail_test(){
     
     return $result;
 }
+
+function wu_advisory($wupage){
+    $file=file_get_contents("$wupage");
+    preg_match_all("%<div class=\"alert-items\">(.*?)</div>%s", $file, $alert,PREG_PATTERN_ORDER);
+    return $alert[0][0];
+}
+
 
 ?>
