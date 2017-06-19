@@ -25,9 +25,12 @@ $next=whatsnext($s,$mus,$streams);
 
 // what is the next video stream to play
 function whatsnext($s,$mus,$streams){
+    $f0=''; $f1='';
     $next=0;
     $i=0;
         foreach($streams as $k1 => $k2){
+            $f0=($k2['mus']==0 && empty($f0)?$i:$f0);
+            $f1=($k2['mus']==1 && empty($f1)?$i:$f1);
             if($mus==1 && $i>$s && $k2['mus']==1 && $next==0) {
                 $next=$i;
             }
@@ -35,7 +38,16 @@ function whatsnext($s,$mus,$streams){
                 $next=$i;
             }
         $i++;
+        }
+
+    // catch overspill
+    if($mus==0 && $streams[$next]['mus']!=0){
+        $next=$f0;
     }
+    if($mus==1 && $streams[$next]['mus']!=1){
+        $next=$f1;
+    }
+
    //$next=($next==0?1:$next);
     return $next;
 }

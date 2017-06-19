@@ -8,7 +8,7 @@
 // If your TV aspect is more sqaure than regular widescreen you can use the 4:3 mode
 // m43 = 4:3 aspect, m169 = 16:9 aspect
 //$aspect ="m43";
-$aspect ="m169"
+$aspect ="m169";
 
 // ##### Date / Timezone #####
 // You can safely disable my default timezone by adding // to the start of the line.
@@ -57,7 +57,7 @@ $streams[]=array(
 $streams[]=array(
     "name" => "MC",
     "url" => "cCmJdLA5b1I",
-    "time" => 300,
+    "time" => 1200,
     "mus" => 1
 );
 
@@ -69,11 +69,11 @@ $streams[]=array(
     "mus" => 0
 );
 
-// Music Hound
+// Vibe Guide
 $streams[]=array(
-    "name" => "MH",
-    "url" => "WNFFx08d6_I",
-    "time" => 300,
+    "name" => "VG",
+    "url" => "Ww5wO_lxOSk",
+    "time" => 1200,
     "mus" => 1
 );
 
@@ -89,7 +89,7 @@ $streams[]=array(
 $streams[]=array(
     "name" => "NC",
     "url" => "1-AODuJpCG4",
-    "time" => 300,
+    "time" => 1200,
     "mus" => 1
 );
 
