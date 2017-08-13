@@ -3,6 +3,8 @@ Kitchen TV; weather, clock, live news feeds &amp; video for Raspberry pi using P
 
 This is a WEB based (PHP, Javascript) app I put together from various tools & scripts found on the web to create my own Kitchen TV : News, Clock & Weather music player & web browser display.
 
+![alt text](screenshot.jpg)
+
 Here is a youtube video of it in action : https://www.youtube.com/watch?v=U5OF6tn-Ccg
 
 If you want to set up the same thing: ======
